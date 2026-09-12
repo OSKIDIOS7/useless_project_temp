@@ -1,0 +1,683 @@
+/* ==========================================
+   🐱 HUMAN → MEOW TRANSLATOR
+   ========================================== */
+
+
+/* ==========================================
+   BASIC RESET
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   PAGE
+   ========================================== */
+
+body {
+    min-height: 100vh;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4fb,
+            #f3efff,
+            #fffaf0
+        );
+
+    color: #3d3152;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    position: relative;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================================
+   BACKGROUND MEOW PATTERN
+   ========================================== */
+
+body::before {
+    content:
+        "MEOW     🐾     MEOW     MEOW     🐾     "
+        "MEOW     MEOW     🐾     MEOW     MEOW";
+
+    position: fixed;
+
+    inset: 0;
+
+    font-size: 55px;
+
+    font-weight: 800;
+
+    line-height: 2.5;
+
+    color: rgba(157, 112, 190, 0.07);
+
+    word-spacing: 30px;
+
+    transform:
+        rotate(-12deg)
+        scale(1.2);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ==========================================
+   MAIN CONTAINER
+   ========================================== */
+
+.container {
+    width: 100%;
+
+    max-width: 720px;
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   TITLE
+   ========================================== */
+
+h1 {
+    font-size: 42px;
+
+    font-weight: 800;
+
+    color: #7047a3;
+
+    margin-bottom: 10px;
+
+    text-shadow:
+        0 3px 12px rgba(112, 71, 163, 0.15);
+}
+
+
+/* ==========================================
+   SUBTITLE
+   ========================================== */
+
+.subtitle {
+    font-size: 17px;
+
+    color: #796b87;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   🐾 FLOATING PAW PRINTS
+   ========================================== */
+
+.paw {
+    position: fixed;
+
+    font-size: 35px;
+
+    opacity: 0.15;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation: floatPaw 6s ease-in-out infinite;
+}
+
+
+/* Paw positions */
+
+.paw1 {
+    left: 8%;
+    top: 20%;
+
+    animation-delay: 0s;
+}
+
+.paw2 {
+    right: 10%;
+    top: 15%;
+
+    animation-delay: 1s;
+}
+
+.paw3 {
+    left: 12%;
+    bottom: 20%;
+
+    animation-delay: 2s;
+}
+
+.paw4 {
+    right: 8%;
+    bottom: 25%;
+
+    animation-delay: 3s;
+}
+
+.paw5 {
+    right: 25%;
+    top: 70%;
+
+    animation-delay: 4s;
+}
+
+
+/* Paw animation */
+
+@keyframes floatPaw {
+
+    0% {
+        transform: translateY(0) rotate(-10deg);
+        opacity: 0.10;
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+        opacity: 0.25;
+    }
+
+    100% {
+        transform: translateY(0) rotate(-10deg);
+        opacity: 0.10;
+    }
+}
+
+
+/* ==========================================
+   🐱 CAT GIF
+   ========================================== */
+
+#catAnimation {
+    display: none;
+
+    position: relative;
+
+    margin-bottom: 20px;
+
+    animation: catAppear 0.35s ease;
+}
+
+
+#catAnimation img {
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(111, 78, 140, 0.15);
+}
+
+
+/* GIF appearance */
+
+@keyframes catAppear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================
+   💬 SPEECH BUBBLE
+   ========================================== */
+
+.speechBubble {
+    position: absolute;
+
+    top: 10px;
+
+    right: calc(50% - 170px);
+
+    background: white;
+
+    color: #7047a3;
+
+    padding: 12px 18px;
+
+    border-radius: 20px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(111, 78, 140, 0.15);
+
+    animation: bubblePop 0.4s ease;
+}
+
+
+.speechBubble::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -8px;
+
+    left: 25px;
+
+    width: 18px;
+
+    height: 18px;
+
+    background: white;
+
+    transform: rotate(45deg);
+}
+
+
+/* Bubble animation */
+
+@keyframes bubblePop {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================
+   TRANSLATOR CARD
+   ========================================== */
+
+.translator-box {
+    background:
+        rgba(255, 255, 255, 0.90);
+
+    border:
+        2px solid rgba(190, 155, 220, 0.35);
+
+    border-radius: 28px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 20px 50px rgba(111, 78, 140, 0.15),
+        0 5px 15px rgba(111, 78, 140, 0.08);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* ==========================================
+   LABELS
+   ========================================== */
+
+label {
+    display: block;
+
+    text-align: left;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #694b82;
+
+    margin-bottom: 10px;
+}
+
+
+/* ==========================================
+   TEXTAREA
+   ========================================== */
+
+textarea {
+    width: 100%;
+
+    min-height: 130px;
+
+    resize: vertical;
+
+    border:
+        2px solid #eadcf3;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    color: #40334d;
+
+    background: #fffaff;
+
+    outline: none;
+
+    transition: 0.25s;
+}
+
+
+textarea:focus {
+    border-color: #a979ca;
+
+    box-shadow:
+        0 0 0 4px rgba(169, 121, 202, 0.12);
+}
+
+
+textarea::placeholder {
+    color: #b0a3b9;
+}
+
+
+/* ==========================================
+   🐾 MAIN TRANSLATE BUTTON
+   ========================================== */
+
+#translateBtn {
+    width: 100%;
+
+    margin: 24px 0;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9b65c7,
+            #c56ba8
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(155, 101, 199, 0.30);
+
+    transition:
+        all 0.25s ease;
+}
+
+
+#translateBtn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(155, 101, 199, 0.40);
+}
+
+
+#translateBtn:active {
+    transform: scale(0.97);
+}
+
+
+#translateBtn:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.75;
+
+    transform: none;
+}
+
+
+/* ==========================================
+   🐱 MEOW OUTPUT
+   ========================================== */
+
+#meowOutput {
+    min-height: 100px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff6fc,
+            #f7f1ff
+        );
+
+    border:
+        2px dashed #d7bde8;
+
+    color: #7047a3;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+
+    transition: 0.3s;
+}
+
+
+/* ==========================================
+   ✨ TRANSLATION ANIMATION
+   ========================================== */
+
+.translationAnimation {
+    animation: translationPop 0.5s ease;
+}
+
+
+@keyframes translationPop {
+
+    0% {
+        opacity: 0;
+
+        transform: scale(0.8);
+    }
+
+    60% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================
+   🔊 ACTION BUTTONS
+   ========================================== */
+
+.actionButtons {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+.smallButton {
+    flex: 1;
+
+    padding: 13px;
+
+    border: 2px solid #e2d2ed;
+
+    border-radius: 14px;
+
+    background: #fffaff;
+
+    color: #7047a3;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.smallButton:hover:not(:disabled) {
+    background: #f7effc;
+
+    transform: translateY(-2px);
+}
+
+
+.smallButton:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+
+/* ==========================================
+   🔊 SOUND STATUS
+   ========================================== */
+
+#soundStatus {
+    padding: 13px;
+
+    border-radius: 14px;
+
+    background: #fff7e8;
+
+    color: #8a6841;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+    margin-top: 22px;
+
+    color: #927e9f;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   📱 MOBILE
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 18px;
+    }
+
+
+    h1 {
+        font-size: 30px;
+    }
+
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+
+    .translator-box {
+        padding: 22px;
+
+        border-radius: 22px;
+    }
+
+
+    #catAnimation img {
+        width: 140px;
+
+        height: 140px;
+    }
+
+
+    .speechBubble {
+        right: 5%;
+
+        top: 5px;
+
+        font-size: 13px;
+
+        padding: 9px 13px;
+    }
+
+
+    #meowOutput {
+        font-size: 18px;
+    }
+
+
+    .actionButtons {
+        flex-direction: column;
+    }
+
+
+    .paw {
+        font-size: 25px;
+    }
+}

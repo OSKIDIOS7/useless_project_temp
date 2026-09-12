@@ -1,1 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Meow Translator 🐱</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         🐾 FLOATING PAW PRINTS
+         ===================================== -->
+
+    <div class="paw paw1">🐾</div>
+
+    <div class="paw paw2">🐾</div>
+
+    <div class="paw paw3">🐾</div>
+
+    <div class="paw paw4">🐾</div>
+
+    <div class="paw paw5">🐾</div>
+
+
+
+    <!-- =====================================
+         MAIN CONTAINER
+         ===================================== -->
+
+    <div class="container">
+
+
+        <!-- =================================
+             TITLE
+             ================================= -->
+
+        <h1>
+            🐱 Human → Meow Translator
+        </h1>
+
+
+        <p class="subtitle">
+            Say something in human language.
+            Let the cat translate it!
+        </p>
+
+
+
+        <!-- =================================
+             🐱 CAT GIF
+             ================================= -->
+
+        <div id="catAnimation">
+
+            <img
+                src="cat.gif"
+                alt="Meowing cat"
+            >
+
+
+            <!-- Speech Bubble -->
+
+            <div class="speechBubble">
+
+                🐱 <span>MEOW!</span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             TRANSLATOR BOX
+             ================================= -->
+
+        <div class="translator-box">
+
+
+            <!-- Human Input -->
+
+            <label for="humanText">
+
+                🧑 Human Language
+
+            </label>
+
+
+            <textarea
+                id="humanText"
+                placeholder="Type your sentence here..."
+            ></textarea>
+
+
+
+            <!-- =================================
+                 TRANSLATE BUTTON
+                 ================================= -->
+
+            <button
+                id="translateBtn"
+            >
+
+                🐾 Translate to Meow
+
+            </button>
+
+
+
+            <!-- =================================
+                 CAT OUTPUT
+                 ================================= -->
+
+            <label>
+
+                🐱 Cat Language
+
+            </label>
+
+
+            <div id="meowOutput">
+
+                Your meow translation
+                will appear here...
+
+            </div>
+
+
+
+            <!-- =================================
+                 ACTION BUTTONS
+                 ================================= -->
+
+            <div class="actionButtons">
+
+
+                <!-- Replay -->
+
+                <button
+                    id="replayBtn"
+                    class="smallButton"
+                    disabled
+                >
+
+                    🔊 Meow Again
+
+                </button>
+
+
+
+                <!-- Copy -->
+
+                <button
+                    id="copyBtn"
+                    class="smallButton"
+                    disabled
+                >
+
+                    📋 Copy Meow
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 SOUND STATUS
+                 ================================= -->
+
+            <div id="soundStatus">
+
+                🔊 Waiting for translation...
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             FOOTER
+             ================================= -->
+
+        <p class="footer">
+
+            🐾 Powered by the Meow Engine 🐾
+
+        </p>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+         ===================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
